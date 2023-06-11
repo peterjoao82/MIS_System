@@ -47,6 +47,17 @@ header("location:../index.php");
 		echo "Connection is not Successfully";
 	}
 ?>
+or
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$conn = new mysqli($servername, $username, $password);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
 
 //login success for every page 
 <?php  
@@ -197,4 +208,48 @@ header("location:../index.php");
 									?> 
 								</table>
 
+
+
+//establish secure login and encrpyt password
+<?php
+$db_host = "localhost";
+$db_name = "secure_pass";
+$db_pass = "";
+$db_user = "root";
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+if (!$conn){
+	die ('Failed to connect with server');
+}
+?>
+<form action="index.php" method="POST">
+<label for="username">Username</label>
+<input type="text" name="username" required><br><br>
+
+<label for="password">Password</label>
+<input type="password" name="password" required><br><br>
+<input type="submit" name="submit" value="submit">
+</form>
+<?php
+//Include database connection file
+include 'dbconn.php';
+
+if (isset($_POST['submit'])){
+	$username = $_POST['username'];
+
+	// Normal Password
+	$pass = $_POST['password'];
+
+	// Securing password using password_hash
+	$secure_pass = password_hash($pass, PASSWORD_BCRYPT);
+
+	$sql = "INSERT INTO login_tb (u_username, u_password)
+	VALUES('$username', '$secure_pass')";
+	$result = mysqli_query($conn, $sql);
+}
+
+// Include HTML sign up form
+include 'signup_form.php';
+?>
 
