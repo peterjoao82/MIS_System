@@ -20,7 +20,7 @@
             <div class="card-header pb-0">
               <h6>Authors table</h6>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+           <!-- <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
@@ -202,9 +202,9 @@
                       </td>
                     </tr>
                   </tbody>
-                </table>
+                </table> 
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -228,7 +228,7 @@
                   </thead>
                   <tbody>
                     <?php            
-                      $query="select * from monthlyattn where ST_NO='4MW19CS063'";
+                      $query="select ma.year,ma.sub_code,ma.MnthlyTotClasses,ma.MnthlyTotAttended,ma.ATTNPER,s.sub_name from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE";
                                     $run=mysqli_query($conn,$query);
                                     while ($row=mysqli_fetch_array($run)) { ?>
                     <tr>
@@ -236,7 +236,7 @@
                         <div class="d-flex px-2">
                           
                           <div class="my-auto">
-                            <h6 class="mb-0 text-sm"><?php echo $row['SUB_CODE'] ?></h6>
+                            <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
                           </div>
                         </div>
                       </td>
