@@ -2,7 +2,7 @@
 <?php 
 session_start();
     require_once "../connection/connection.php"; 
-    $message="Email Or Password Does Not Match";
+    $message="USN Or Password Does Not Match";
     if(isset($_POST["btnlogin"]))
     {
         $username=$_POST["email"]; email is value name
@@ -12,21 +12,16 @@ session_start();
         $result=mysqli_query($con,$query);
         if (mysqli_num_rows($result)>0) {
             while ($row=mysqli_fetch_array($result)) {
-                if ($row["Role"]=="Admin")
+                if ($row["Role"]=="Student")
                 {
                     $_SESSION['LoginAdmin']=$row["user_id"];
-                    header('Location: ../admin/admin-index.php');
-                }
-                else if ($row["Role"]=="Teacher" and $row["account"]=="Activate")
-                {
-                    $_SESSION['LoginTeacher']=$row["user_id"];
-                    header('Location: ../teacher/teacher-index.php');
+                    header('Location: ../pages/dashboard.php');
                 }
             }
         }
         else
         { 
-            header("Location: login.php");
+            header("Location: login-in.php");
         }
     }
 ?>
