@@ -9,18 +9,20 @@
 
 <body class="g-sidenav-show  bg-gray-100">
    <?php include('../include/link.html'); ?>
+ 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <?php include('../include/dashboardnav.html'); ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
+      <div>
+     <!-- <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>Authors table</h6>
             </div>
-           <!-- <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
@@ -204,10 +206,15 @@
                   </tbody>
                 </table> 
               </div>
-            </div> -->
+            </div> 
           </div>
         </div>
-      </div>
+      </div> -->
+</div>
+<br>
+   <br>
+   <br>
+<div>
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
@@ -270,6 +277,7 @@
           </div>
         </div>
       </div>
+                                    </div>
        <?php include('../include/footer.html'); ?>
     </div>
   </main>
