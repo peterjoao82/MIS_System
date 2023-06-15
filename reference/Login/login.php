@@ -56,7 +56,7 @@ session_start();
                     </div>
                     <div class="form-group">
                         <label><h6>Enter Password:</h6></label>
-                        <input type="Password" name="password" placeholder="Enter Password" class="form-control border-bottom" required>
+                        <input type="password" name="password" placeholder="Enter Password" class="form-control border-bottom" required>
                         <!-- <?php echo $message; ?> -->
                     </div>
                     <div class="form-group text-center mb-3 mt-4">
