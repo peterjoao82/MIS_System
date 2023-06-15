@@ -1,8 +1,8 @@
 <?php  
 	session_start();
-	if (!$_SESSION["Student"])
+	if (!$_SESSION["user_id"])
 	{
-		header('location: ../login/login-in.php');
+		header('location: ../login/login.php');
 	}
 		require_once "../connection/connection.php";
 		
@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('../include/header.pgp');  ?>
+<?php include('../include/header.php');  ?>
 
 <body class="g-sidenav-show  bg-gray-100">
 

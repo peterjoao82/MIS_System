@@ -4,7 +4,7 @@
 	session_start();
 	// if (!$_SESSION["Student"])
 	// {
-	// 	header('location: ../login/login-in.php');
+	// 	header('location: ../login/login.php');
 	// }
 		require_once "../connection/connection.php";
 		
