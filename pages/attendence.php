@@ -1,28 +1,21 @@
-
-
-<?php  
-	session_start();
-	if (!$_SESSION["Student"])
-	{
-		header('location: ../login/login-in.php');
-	}
-		require_once "../connection/connection.php";
-		
-	?>
+<?php session_start();
+    require_once "../connection/connection.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../include/header.php');
-$var = 1; ?>
+ <?php include('../include/header.php');
+ $var=1; ?>
 
 
 <body class="g-sidenav-show  bg-gray-100">
-  <?php include('../include/link.html'); ?>
+   <?php include('../include/link.html'); ?>
+ 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <?php include('../include/dashboardnav.html'); ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
+      <div>
+     <!-- <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
@@ -210,12 +203,17 @@ $var = 1; ?>
                       </td>
                     </tr>
                   </tbody>
-                </table>
+                </table> 
               </div>
-            </div>
+            </div> 
           </div>
         </div>
-      </div>
+      </div> -->
+</div>
+<br>
+   <br>
+   <br>
+<div>
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
@@ -228,7 +226,6 @@ $var = 1; ?>
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Subject</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Subject Code</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Classes Held</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Classes Attended</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Percentage</th>
@@ -236,52 +233,41 @@ $var = 1; ?>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    $userid = "4MW20CS011";
-                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
-                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='$userid' GROUP BY ma.SUB_CODE";
-                    $run = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($run)) { ?>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2">
-                            <?php
-                            $ptr = $row['pert'];
-                            $string = floatval($ptr);
-                            $formatted = number_format($string, 2, '.', '');
-                            $maxvalue1 = '100';
-                            ?>
-                            <div class="my-auto">
-                              <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
+                    <?php            
+                     $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='$userid' GROUP BY ma.SUB_CODE";
+                                    $run=mysqli_query($conn,$query);
+                                    while ($row=mysqli_fetch_array($run)) { ?>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2">
+                          
+                          <div class="my-auto">
+                            <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-sm font-weight-bold mb-0"><?php echo $row['MnthlyTotClasses'] ?></p>
+                      </td>
+                      <td>
+                        <span class="text-xs font-weight-bold"><?php echo $row['MnthlyTotAttended'] ?></span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                          <span class="me-2 text-xs font-weight-bold"><?php echo $row['ATTNPER'] ?>%</span>
+                          <div>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                             </div>
                           </div>
-                        </td>
-                        <td>
-                          <p class="text-sm font-weight-bold mb-0"><?php echo $row['sub_code'] ?></p>
-                        </td>
-                        <td>
-                          <p class="text-sm font-weight-bold mb-0"><?php echo $row['Tot_cls'] ?></p>
-                        </td>
-                        <td>
-                          <span class="text-xs font-weight-bold"><?php echo $row['MnthTotAtt'] ?></span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <div class="d-flex align-items-center justify-content-center">
-                            <span class="me-2 text-xs font-weight-bold"><?php echo $formatted; ?>%</span>
-                            <div>
-                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow=$maxvalue1 aria-valuemin=$formatted aria-valuemax=$maxvalue1>
-                                <div class="progress-bar w-75"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="align-middle">
-                          <button class="btn btn-link text-secondary mb-0">
-                            <i class="fa fa-ellipsis-v text-xs"></i>
-                          </button>
-                        </td>
-                      </tr>
-
+                        </div>
+                      </td>
+                      <td class="align-middle">
+                        <button class="btn btn-link text-secondary mb-0">
+                          <i class="fa fa-ellipsis-v text-xs"></i>
+                        </button>
+                      </td>
+                    </tr>
                     <?php } ?>
                   </tbody>
                 </table>
@@ -290,7 +276,8 @@ $var = 1; ?>
           </div>
         </div>
       </div>
-      <?php include('../include/footer.html'); ?>
+                                    </div>
+       <?php include('../include/footer.html'); ?>
     </div>
   </main>
 </body>
