@@ -1,6 +1,19 @@
 
+<<<<<<< HEAD
 <?php session_start();
     require_once "../connection/connection.php"; ?>
+=======
+
+<?php  
+	session_start();
+	// if (!$_SESSION["Student"])
+	// {
+	// 	header('location: ../login/login-in.php');
+	// }
+		require_once "../connection/connection.php";
+		
+	?>
+>>>>>>> cc608423eb77b878af3d8f5d3b4c75fdb714ce6d
 <!DOCTYPE html>
 <html lang="en">
  <?php include('../include/header.php');
@@ -14,12 +27,15 @@
     <!-- Navbar -->
     <?php include('../include/dashboardnav.html'); ?>
     <!-- End Navbar -->
+    <br>
+    <br><br>
     <div class="container-fluid py-4">
       <div>
      <!-- <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
+<<<<<<< HEAD
               <h6>Authors table</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -219,6 +235,8 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
+=======
+>>>>>>> cc608423eb77b878af3d8f5d3b4c75fdb714ce6d
               <h6>Attendence</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -234,6 +252,7 @@
                     </tr>
                   </thead>
                   <tbody>
+<<<<<<< HEAD
                     <?php            
                       $query="select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='4MW20CS019' GROUP BY ma.SUB_CODE";
                                     $run=mysqli_query($conn,$query);
@@ -244,6 +263,26 @@
                           
                           <div class="my-auto">
                             <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
+=======
+                    <?php
+                    $userid = "4MW20CS011";
+                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
+                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='4MW20CS001' GROUP BY ma.SUB_CODE";
+                    $run = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($run)) { ?>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2">
+                            <?php
+                            $ptr = $row['pert'];
+                            $string = floatval($ptr);
+                            $formatted = number_format($string, 2, '.', '');
+                            $maxvalue1 = '100';
+                            ?>
+                            <div class="my-auto">
+                              <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
+                            </div>
+>>>>>>> cc608423eb77b878af3d8f5d3b4c75fdb714ce6d
                           </div>
                         </div>
                       </td>

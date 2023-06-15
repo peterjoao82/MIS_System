@@ -65,7 +65,7 @@ session_start();
               </div>
               
               <div class="card-body">
-                <form role="form text-left" method="post" action="login-in.php">
+                <form role="form text-left" method="POST" action="login-in.php">
                  <div class="mb-3">
                     <input type="text" class="form-control" placeholder="Uinversity Seat Number" aria-label="Email" name="usn" aria-describedby="email-addon">
                   </div>
