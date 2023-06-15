@@ -7,13 +7,13 @@ session_start();
     {
         $username=$_POST["usn"]; 
         $password=$_POST["usnpassword"];  
-        $query="select ST_NO,PASSWD from studentmaster where ST_NO='$username' and PASSWD='$password' ";
-        $result=mysqli_query($con,$query);
+        $query="select * from studentmaster where ST_NO='$username' and PASSWD='$password' ";
+        $result=mysqli_query($conn,$query);
         if (mysqli_num_rows($result)>0) {
             while ($row=mysqli_fetch_array($result)) {
-                if ($row["ST_NO"]=="$username")
+                if ($row["ST_NO"]==$username)
                 {
-                    $_SESSION[$username]=$row['ST_NO'];
+                    $_SESSION["Student"]=$row["ST_NO"];
                     header('Location: ../pages/dashboard.php');
                 }
             }

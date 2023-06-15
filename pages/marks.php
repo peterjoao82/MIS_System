@@ -1,4 +1,12 @@
-
+<?php  
+	session_start();
+	if (!$_SESSION["Student"])
+	{
+		header('location: ../login/login-in.php');
+	}
+		require_once "../connection/connection.php";
+		
+	?>
 <!DOCTYPE html>
 <html lang="en">
  <?php include('../include/header.php'); ?>
