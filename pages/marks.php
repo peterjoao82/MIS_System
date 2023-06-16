@@ -1,6 +1,6 @@
 <?php  
 	session_start();
-	if (!$_SESSION["Student"])
+	if (!$_SESSION["user_id"])
 	{
 		header('location: ../login/login.php');
 	}

@@ -2,10 +2,10 @@
 
 <?php  
 	session_start();
-	// if (!$_SESSION["Student"])
-	// {
-	// 	header('location: ../login/login.php');
-	// }
+	if (!$_SESSION["user_id"])
+	{
+		header('location: ../login/login.php');
+	}
 		require_once "../connection/connection.php";
 		
 	?>
