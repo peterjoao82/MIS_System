@@ -9,6 +9,10 @@
 		require_once "../connection/connection.php";
 		
 	?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include('../include/header.php');
@@ -19,7 +23,7 @@ $var = 1; ?>
   <?php include('../include/link.html'); ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    <?php include('../include/dashboardnav.html'); ?>
+    <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
     <br>
     <br><br>
@@ -45,9 +49,7 @@ $var = 1; ?>
                   </thead>
                   <tbody>
                     <?php
-                    $userid = "4MW20CS011";
-                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
-                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='4MW20CS001' GROUP BY ma.SUB_CODE";
+                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='$Student_USN' GROUP BY ma.SUB_CODE ";
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
                       <tr>
@@ -76,11 +78,11 @@ $var = 1; ?>
                         <td class="align-middle text-center">
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold"><?php echo $formatted; ?>%</span>
-                            <div>
-                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow=$maxvalue1 aria-valuemin=$formatted aria-valuemax=$maxvalue1>
-                                <div class="progress-bar w-75"></div>
+                            <!-- <div>
+                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow='$formatted' aria-valuemin=$formatted aria-valuemax="$maxvalue1">
+                                <div class="progress-bar w-'$formatted'" style="color:red;"></div>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </td>
                         <td class="align-middle">
@@ -119,9 +121,9 @@ $var = 1; ?>
                   </thead>
                   <tbody>
                     <?php
-                    $userid = "4MW20CS011";
+                
                     // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
-                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='4MW20CS001' GROUP BY ma.SUB_CODE";
+                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='$Student_USN' GROUP BY ma.SUB_CODE";
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
                       <tr>
