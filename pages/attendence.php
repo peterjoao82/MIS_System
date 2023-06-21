@@ -1,25 +1,23 @@
-<?php  
-	session_start();
-	if (!$_SESSION["user_id"])
-	{
-		header('location: ../login/login.php');
-	}
-		require_once "../connection/connection.php";
-    
-		
-	?>
+<?php
+session_start();
+if (!$_SESSION["user_id"]) {
+  header('location: ../login/login.php');
+}
+require_once "../connection/connection.php";
+
+
+?>
 <?php
 if (isset($_POST['sub1'])) {
-                    $semi=$_POST['sem'];
-                  
-                  }
-                  ?>
+  $semi = $_POST['sem'];
+}
+?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <?php include('../include/header.php');
- ?>
+?>
 
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -34,28 +32,29 @@ if (isset($_POST['sub1'])) {
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-            <div class="align-middle">
-              <h6>Attendenceit</h6>
+            <div class="card-header pb-0">
+              <h6>Attendence it</h6>
             </div>
             <form action="attendence.php" method="POST">
-            <div class="text-middle-align">
-            <div class="dropdown" style="text-align: right; margin-right:20px;" >
-   
-                    <select class="browser-default custom-select" name="sem" >
-                                            
-                                            <?php
-                                            
-                                            $query="select distinct SEMESTER as sem from subject";
-                                            $run=mysqli_query($conn,$query);
-                                            while($row=mysqli_fetch_array($run)) {
-                                            echo "<option  value=".$row['sem'].">".$row['sem']."</option>";
-                                            }
-                                            ?>
+              <div class="text-middle-align">
+                <div class="dropdown" style="text-align: right; margin-right:20px;">
 
-                                        </select>
-                                        <input type="submit" name="sub1" value='submit'/>
-                  </div>
-                </form> 
+                  <select class="browser-default custom-select" name="sem">
+
+                  <option value="1" selected>1</option>
+                    <?php
+
+                    $query = "select distinct SEMESTER as sem from subject";
+                    $run = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($run)) {
+                      echo "<option value=" . $row['sem'] . ">" . $row['sem'] . "</option>";
+                    }
+                    ?>
+
+                  </select>
+                  <input type="submit" name="sub1" value='submit' />
+                </div>
+            </form>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center justify-content-center mb-0">
@@ -70,8 +69,8 @@ if (isset($_POST['sub1'])) {
                     </tr>
                   </thead>
                   <tbody>
-                   
-                  <?php
+
+                    <?php
                     $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$Student_USN' GROUP BY ma.SUB_CODE";
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
@@ -123,11 +122,10 @@ if (isset($_POST['sub1'])) {
           </div>
         </div>
       </div>
-     
+
       <?php include('../include/footer.html'); ?>
     </div>
   </main>
 </body>
 
 </html>
-
