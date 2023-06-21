@@ -1,3 +1,4 @@
+
 <?php  
 	session_start();
 	if (!$_SESSION["user_id"])
@@ -19,72 +20,48 @@
     <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-    <div class="row">
+      <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Marks</h6>
+              <h6>Marks table</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center justify-content-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Subject</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Subject Code</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Classes Held</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Classes Attended</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Percentage</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center" >SUB CODE</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">SUB NAME</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">AVERAGE</th>
                       <th></th>
+                     
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    $userid = "4MW20CS011";
-                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='4MW20CS001' GROUP BY ma.SUB_CODE ";
-                    $run = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($run)) { ?>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2">
-                            <?php
-                            $ptr = $row['pert'];
-                            $string = floatval($ptr);
-                            $formatted = number_format($string, 2, '.', '');
-                            $maxvalue1 = '100';
+                  <?php 
+                            
+                            $obtain_marks=0;
+            
+                             //  $roll_no=$_SESSION['user_id'];
+                                $query="SELECT m.ST_NO,m.SUB_CODE ,s.SUB_NAME, AVG(m.IA_1+m.IA_2+m.IA_3) as mm FROM marks m, subject s WHERE m.SUB_CODE=s.SUB_CODE AND m.ST_NO='4MW20CS001' GROUP by s.SUB_CODE";
+                                $run=mysqli_query($conn,$query);
+                                while ($row=mysqli_fetch_array($run)) { 
+                                  ?>
+                                    <tr >
+                                        <td><?php echo $row['SUB_CODE'] ?></td>
+                                        <td><?php echo $row['SUB_NAME'] ?></td>                                       
+                                        <td><?php echo $row['mm'] ?></td>
+                                
+                        
+                                    </tr>
+                                <?php
+                                    
+                                }
                             ?>
-                            <div class="my-auto">
-                              <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm font-weight-bold mb-0"><?php echo $row['sub_code'] ?></p>
-                        </td>
-                        <td>
-                          <p class="text-sm font-weight-bold mb-0"><?php echo $row['Tot_cls'] ?></p>
-                        </td>
-                        <td>
-                          <span class="text-xs font-weight-bold"><?php echo $row['MnthTotAtt'] ?></span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <div class="d-flex align-items-center justify-content-center">
-                            <span class="me-2 text-xs font-weight-bold"><?php echo $formatted; ?>%</span>
-                            <div>
-                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow=$maxvalue1 aria-valuemin=$formatted aria-valuemax=$maxvalue1>
-                                <div class="progress-bar w-75"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="align-middle">
-                          <button class="btn btn-link text-secondary mb-0">
-                            <i class="fa fa-ellipsis-v text-xs"></i>
-                          </button>
-                        </td>
-                      </tr>
 
-                    <?php } ?>
+                
+                  
                   </tbody>
                 </table>
               </div>
@@ -92,6 +69,7 @@
           </div>
         </div>
       </div>
+    
        <?php include('../include/footer.html'); ?>
     </div>
   </main>

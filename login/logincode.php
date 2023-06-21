@@ -23,6 +23,7 @@ if ( ! empty( $_POST ) ) {
     	// }
        
         if ( isset( $_SESSION['user_id'] ) ) {
+           
             header("Location: ../pages/dashboard.php");
         } else {
             $error = "Invalid email or password";
