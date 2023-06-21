@@ -13,10 +13,13 @@ if ( ! empty( $_POST ) ) {
         $stmt->execute();
         $result = $stmt->get_result();
     	$user = $result->fetch_object();
-        $_SESSION['user_id'] = $user->ST_NO;
+        // if ($row["Role"]=="X") {
+        //     # code...
+        // }
+         $_SESSION['user_id'] = $user->ST_NO;
     	// Verify user password and set $_SESSION
     	// if ( password_verify( $_POST['PASSWD'], $user->PASSWD ) ) {
-    	// 	$_SESSION['user_id'] = $user->ID;
+    	// 	$_SESSION['user_id'] = $user->ST_NO;
     	// }
        
         if ( isset( $_SESSION['user_id'] ) ) {

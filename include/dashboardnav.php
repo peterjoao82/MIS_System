@@ -1,29 +1,24 @@
- <!---<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
-        </nav>
-       
-          <ul class="navbar-nav  justify-content-end">
-  
-            <li class="nav-item d-flex align-items-center">
-              <a href="" >
-                <span class="d-sm-inline block">LogOut</span>
-              </a>
-            </li> 
-          </ul>
-        </div>
-      </div>
-    </nav>-->
+<!-- <?php
+    $_SESSION["admin"]="";
+    $Student_USN=$_SESSION['user_id'];
+    $query1="SELECT * FROM studentmaster WHERE ST_NO='$Student_USN'";
+    $run1=$run=mysqli_query($conn,$query1);
+    while($row=mysqli_fetch_array($run1)) {
+        $Student_USN=$row["ST_NO"];
+        // echo $Student_USN;
+    }
+?> -->
 
  <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./dashboard.php">
-              MIS
+              <h4 class=""> MIS - Welcome  <span><?php $Student_USN=$_SESSION['user_id'];
+                    $query="SELECT * FROM studentmaster WHERE ST_NO='$Student_USN'";
+                    $run=mysqli_query($conn,$query);
+                    while ($row=mysqli_fetch_array($run)) {
+                        echo $row['ST_NO'];
+                    }
+                    ?> To Dashboard </h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">

@@ -1,9 +1,9 @@
 <?php  
 	session_start();
-	// if (!$_SESSION["Student"])
-	// {
-	// 	header('location: ../login/login.php');
-	// }
+	if (!$_SESSION["user_id"])
+	{
+		header('location: ../login/login.php');
+	}
 		require_once "../connection/connection.php";
     
 		
@@ -15,6 +15,7 @@ if (isset($_POST['sub1'])) {
                   }
                   ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include('../include/header.php');
@@ -25,7 +26,7 @@ if (isset($_POST['sub1'])) {
   <?php include('../include/link.html'); ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    <?php include('../include/dashboardnav.html'); ?>
+    <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
     <br>
     <br><br>
@@ -71,11 +72,10 @@ if (isset($_POST['sub1'])) {
                   <tbody>
                    
                   <?php
-               
-                
-                  $user_id='4MW20CS001';
-                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
                     $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$user_id' GROUP BY ma.SUB_CODE";
+
+                    <?php
+                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO ='$Student_USN' GROUP BY ma.SUB_CODE ";
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
                       <tr>
@@ -103,21 +103,22 @@ if (isset($_POST['sub1'])) {
                         </td>
                         <td class="align-middle text-center">
                           <div class="d-flex align-items-center justify-content-center">
-                            <span class="me-2 text-xs font-weight-bold"><?php echo $formatted ?>%</span>
-                            <div>
-                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow=$maxvalue1 aria-valuemin=$formatted aria-valuemax=$maxvalue1>
-                                <div class="progress-bar w-75"></div>
+                            <span class="me-2 text-xs font-weight-bold"><?php echo $formatted; ?>%</span>
+                            <!-- <div>
+                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow='$formatted' aria-valuemin=$formatted aria-valuemax="$maxvalue1">
+                                <div class="progress-bar w-'$formatted'" style="color:red;"></div>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </td>
                         <td class="align-middle">
-                          <button class="btn btn-success btn-sm">
-                            <i class="fas fa-arrow-down ms-1">
+                          <button class="btn btn-link text-secondary mb-0">
+                            <i class="fa fa-ellipsis-v text-xs"></i>
                           </button>
                         </td>
                       </tr>
-                    <?php }  ?>
+
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -125,6 +126,7 @@ if (isset($_POST['sub1'])) {
           </div>
         </div>
       </div>
+     
       <?php include('../include/footer.html'); ?>
     </div>
   </main>
