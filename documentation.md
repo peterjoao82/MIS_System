@@ -248,3 +248,14 @@ if (isset($_POST['submit'])){
 include 'signup_form.php';
 ?>
 
+
+
+
+to display user id in top
+<h4 class=""> MIS - Welcome  <span><?php $Student_USN=$_SESSION['user_id'];
+                    $query="SELECT * FROM studentmaster WHERE ST_NO='$Student_USN'";
+                    $run=mysqli_query($conn,$query);
+                    while ($row=mysqli_fetch_array($run)) {
+                        echo $row['ST_NO'];
+                    }
+                    ?> To Dashboard </h4>

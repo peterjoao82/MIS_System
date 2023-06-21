@@ -1,9 +1,9 @@
 <?php  
 	session_start();
-	// if (!$_SESSION["Student"])
-	// {
-	// 	header('location: ../login/login.php');
-	// }
+	if (!$_SESSION["user_id"])
+	{
+		header('location: ../login/login.php');
+	}
 		require_once "../connection/connection.php";
     
 		
@@ -17,6 +17,7 @@ if (!empty($_POST['sub1'])) {
                    }
                   ?>
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -28,7 +29,7 @@ if (!empty($_POST['sub1'])) {
   <?php include('../include/link.html'); ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
-    <?php include('../include/dashboardnav.html'); ?>
+    <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
     <br>
     <br><br>
@@ -106,21 +107,22 @@ if (!empty($_POST['sub1'])) {
                         </td>
                         <td class="align-middle text-center">
                           <div class="d-flex align-items-center justify-content-center">
-                            <span class="me-2 text-xs font-weight-bold"><?php echo $formatted ?>%</span>
-                            <div>
-                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow=$maxvalue1 aria-valuemin=$formatted aria-valuemax=$maxvalue1>
-                                <div class="progress-bar w-75"></div>
+                            <span class="me-2 text-xs font-weight-bold"><?php echo $formatted; ?>%</span>
+                            <!-- <div>
+                              <div class="progress" role="progressbar" aria-label="percentage" aria-valuenow='$formatted' aria-valuemin=$formatted aria-valuemax="$maxvalue1">
+                                <div class="progress-bar w-'$formatted'" style="color:red;"></div>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </td>
                         <td class="align-middle">
-                          <button class="btn btn-success btn-sm">
-                            <i class="fas fa-arrow-down ms-1">
+                          <button class="btn btn-link text-secondary mb-0">
+                            <i class="fa fa-ellipsis-v text-xs"></i>
                           </button>
                         </td>
                       </tr>
-                    <?php }  ?>
+
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -128,6 +130,7 @@ if (!empty($_POST['sub1'])) {
           </div>
         </div>
       </div>
+     
       <?php include('../include/footer.html'); ?>
     </div>
   </main>
