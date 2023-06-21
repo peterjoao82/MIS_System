@@ -1,21 +1,17 @@
-<?php  
-	session_start();
-	if (!$_SESSION["user_id"])
-	{
-		header('location: ../login/login.php');
-	}
-		require_once "../connection/connection.php";
-    
-		
-	?>
 <?php
-$semi='6';
-if (!empty($_POST['sub1'])) {
+session_start();
+if (!$_SESSION["user_id"]) {
+  header('location: ../login/login.php');
+}
+require_once "../connection/connection.php";
 
-                    $semi=$_POST['sem'];
-                  
-                   }
-                  ?>
+
+?>
+<?php
+if (isset($_POST['sub1'])) {
+  $semi = $_POST['sem'];
+}
+?>
 
 
 <!DOCTYPE html>
@@ -24,7 +20,7 @@ if (!empty($_POST['sub1'])) {
   </head>
 <html lang="en">
 <?php include('../include/header.php');
- ?>
+?>
 
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -131,11 +127,10 @@ if (!empty($_POST['sub1'])) {
           </div>
         </div>
       </div>
-     
+
       <?php include('../include/footer.html'); ?>
     </div>
   </main>
 </body>
 
 </html>
-
