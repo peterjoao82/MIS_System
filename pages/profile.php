@@ -10,11 +10,14 @@ require_once "../connection/connection.php";
 <?php include('../include/header.php'); ?>
 
 <body class="g-sidenav-show bg-gray-100">
-<?php include('../include/link.html'); ?>
     <?php include('../include/dashboardnav.php'); ?>
+    <br>
+    <br>
+    <br><br><br>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
             <div class="row ml-4">
-              <div class="col-lg-6 col-md-12 col-sm-12">
+              
+              <div class="col-lg-6 col-md-12 col-sm-12"  style="margin:20px 60px;padding:20 40px; ">
                 <form action="profile.php" method="post">
                   <?php $user_id = $_SESSION['user_id'];
                   $query = "SELECT DISTINCT sm.ST_NO as USN, sm.FNAME as Fname,sm.BR_CODE as bcode,sm.MOBILE_NO as mb,sm.StCollegeEMail as email, PASSWD as pass FROM studentmaster sm, employee e WHERE sm.ST_NO='$user_id'";

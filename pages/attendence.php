@@ -32,8 +32,8 @@ if (isset($_POST['sub1'])) {
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-            <div class="align-middle">
-              <h6>Attendenceit</h6>
+            <div class="card-header pb-0">
+              <h6>Attendence it</h6>
             </div>
             <form action="attendence.php" method="POST">
               <div class="text-middle-align">
@@ -41,12 +41,13 @@ if (isset($_POST['sub1'])) {
 
                   <select class="browser-default custom-select" name="sem">
 
+                  <option value="1" selected>1</option>
                     <?php
 
                     $query = "select distinct SEMESTER as sem from subject";
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) {
-                      echo "<option  value=" . $row['sem'] . ">" . $row['sem'] . "</option>";
+                      echo "<option value=" . $row['sem'] . ">" . $row['sem'] . "</option>";
                     }
                     ?>
 
