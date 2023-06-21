@@ -9,13 +9,16 @@
 		
 	?>
 <?php
-if (isset($_POST['sub1'])) {
+$semi='6';
+if (!empty($_POST['sub1'])) {
+
                     $semi=$_POST['sem'];
                   
-                  }
+                   }
                   ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 <?php include('../include/header.php');
  ?>
@@ -34,13 +37,12 @@ if (isset($_POST['sub1'])) {
         <div class="col-12">
           <div class="card mb-4">
             <div class="align-middle">
-              <h6>Attendenceit</h6>
+              <h6>Attendence</h6>
             </div>
             <form action="attendence.php" method="POST">
             <div class="text-middle-align">
             <div class="dropdown" style="text-align: right; margin-right:20px;" >
-   
-                    <select class="browser-default custom-select" name="sem" >
+                    <select class="browser-default custom-select" style="background-color:purple;color:white" name="sem" >
                                             
                                             <?php
                                             
@@ -52,7 +54,8 @@ if (isset($_POST['sub1'])) {
                                             ?>
 
                                         </select>
-                                        <input type="submit" name="sub1" value='submit'/>
+                                        <input type="submit" name="sub1" value="submit"/>
+                              
                   </div>
                 </form> 
             <div class="card-body px-0 pt-0 pb-2">
@@ -72,10 +75,10 @@ if (isset($_POST['sub1'])) {
                    
                   <?php
                
+               $user_id='4MW20CS001';
+               // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
+               $query = "select s.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$user_id' GROUP BY ma.SUB_CODE";
                 
-                  $user_id='4MW20CS001';
-                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
-                    $query = "select ma.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$user_id' GROUP BY ma.SUB_CODE";
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
                       <tr>
