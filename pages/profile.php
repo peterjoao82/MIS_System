@@ -1,3 +1,5 @@
+<!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
+
 <?php  
 	session_start();
 	if (!$_SESSION["user_id"])
@@ -50,11 +52,9 @@
 </head>
 <!-- okay dd -->
 <body class="g-sidenav-show bg-gray-100">
+ 
+  <!-- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main"> -->
   
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-  <?php
-        include ('../pages/dashboard.php')
-      ?>  
       <!-- Remove this part for side bar -->
   <!-- <div class="sidenav-header">
       
@@ -243,7 +243,7 @@
 								<div class=" col-lg-6 col-md-6 pr-5">
 									<div class="form-group">
 										<label for="exampleInputEmail1">Name:</label>
-										<input type="text" max="999" class="form-control" name="first_name" value=<?php echo $row['Fname']?> readonly>
+										<input type="text"  class="form-control" name="first_name" value=<?php echo $row['Fname']?> readonly>
 									</div>
 								</div>
 								
