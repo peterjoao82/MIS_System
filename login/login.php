@@ -21,7 +21,7 @@
   <!-- End Navbar -->
   <main class="main-content  mt-0">
     <section class="min-vh-100 mb-8">
-      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/smvv.jpg');">
+      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/ssasa.jpg');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
           <div class="row justify-content-center">
