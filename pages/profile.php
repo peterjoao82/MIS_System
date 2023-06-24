@@ -3,22 +3,24 @@
 
 <!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
 
-<?php  
-  session_start();
-  if (!$_SESSION["user_id"])
-  {
-    header('location: ../login/login.php');
-  }
-    require_once "../connection/connection.php";
-  ?>
 
-    <!DOCTYPE html>
+<?php
+session_start();
+if (!$_SESSION["user_id"]) {
+  header('location: ../login/login.php');
+}
+require_once "../connection/connection.php";
+?>
+<!DOCTYPE html>
+
 <html lang="en">
 <?php include('../include/header.php');
- ?>
+?>
 
 <!-- okay dd -->
+
 <body class="g-sidenav-show bg-gray-100">
+
 <?php include('../include/link.html'); ?>
 
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
@@ -104,6 +106,7 @@
     </div>
   </div>
   <?php include('../include/footer.html'); ?>
+
 </body>
 
 </html>
