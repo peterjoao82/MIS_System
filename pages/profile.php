@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
 
 <?php  
@@ -9,11 +10,24 @@
 	}
 		require_once "../connection/connection.php";
 	?>
+=======
+<!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
+
+<?php  
+  session_start();
+  if (!$_SESSION["user_id"])
+  {
+    header('location: ../login/login.php');
+  }
+    require_once "../connection/connection.php";
+  ?>
+>>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
   <!-- End of the session; Aaron -->
   <!-- Declarations of variables -->
   <?php
   // $first_name=$_POST['first_name'];
 
+<<<<<<< HEAD
 	// 	$course_code=$_POST['USN'];
 
 	// 	$section=$_POST['bcode'];
@@ -31,12 +45,27 @@ if (!$_SESSION["user_id"]) {
 }
 require_once "../connection/connection.php";
 >>>>>>> 53ca6d521f7e111032a95ccfeb1fa319a58374f9
-?>
-<!DOCTYPE html>
-<html lang="en">
-<?php include('../include/header.php'); ?>
+=======
+  //  $course_code=$_POST['USN'];
 
+  //  $section=$_POST['bcode'];
+
+  //  $batch=$_POST['mb'];
+
+  //  $fac_adv=$_POST['fac_adv'];
+
+  //  $semester=$_POST['emails'];
+>>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
+?>
+
+    <!DOCTYPE html>
+<html lang="en">
+<?php include('../include/header.php');
+ ?>
+
+<!-- okay dd -->
 <body class="g-sidenav-show bg-gray-100">
+<<<<<<< HEAD
 <<<<<<< HEAD
  
   <!-- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main"> -->
@@ -132,6 +161,22 @@ require_once "../connection/connection.php";
 <<<<<<< HEAD
                   </a>
                 </li> -->
+=======
+ 
+ 
+ <?php include('../include/dashboardnav.php'); ?><br><br><br><br>
+  <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
+      <div class="container-fluid py-1">
+        <nav aria-label="breadcrumb">
+          <br>
+          <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+        </nav>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
+           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+           
+>>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
               </ul>
             </li>
           </ul>
@@ -146,6 +191,7 @@ require_once "../connection/connection.php";
       <!-- Yes -->
       <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
         <div class="row gx-4">
+<<<<<<< HEAD
           <!-- <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
               <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
@@ -360,18 +406,79 @@ require_once "../connection/connection.php";
                   <?php } ?>
                 </form>
 >>>>>>> 53ca6d521f7e111032a95ccfeb1fa319a58374f9
+=======
+        
+        <div class="row ml-4">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <form action="profile.php" method="post">
+              <?php $user_id=$_SESSION['user_id'];
+                $query="SELECT DISTINCT sm.ST_NO as USN, sm.FNAME as Fname,sm.BR_CODE as bcode,sm.MOBILE_NO as mb,sm.StCollegeEMail as email, PASSWD as pass FROM studentmaster sm, employee e WHERE sm.ST_NO='$user_id'";
+                $run=mysqli_query($conn,$query);
+                while ($row=mysqli_fetch_array($run)) {?>
+              <div class="row">
+                <div class=" col-lg-6 col-md-6 pr-5">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Name:</label>
+                    <input type="text"  class="form-control" name="first_name" value=<?php echo $row['Fname']?> readonly>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 pr-5">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">USN</label>
+                    <input type="text" class="form-control" name="course_code"  value="<?php echo $row['USN'] ?>" readonly>
+                  </div>
+                </div>
+>>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
               </div>
+              <div class="row">
+                <div class="col-md-6 pr-5">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Branch:</label>
+                    <input type="text" class="form-control" name="section" value=<?php echo $row['bcode'] ?> readonly>
+                  </div>
+                </div>
+                <div class="col-md-6 pr-5">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Mobile Number:</label>
+                    <input type="text" class="form-control" name="batch"  value=<?php echo $row['mb'] ?> readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-6 pr-5">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Semester</label>
+                    <input type="text" name="semester" class="form-control"  placeholder="Semester" value=<?php echo $row['email'] ?> readonly>
+                  </div>
+                </div>
+               
+              </div>
+              <?php } ?>
+            </form>
+          </div>
+        </div>  
+            
+              </ul>
             </div>
-
-            </ul>
           </div>
         </div>
       </div>
+    </div>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12 col-xl-4">
+          <div class="card h-100">
+           
+          </div>
+        </div>
+       
+      </div>
+       <?php include('../include/footer.html'); ?>
+    </div>
   </div>
-  </div>
-
-  </div>
-  <?php include('../include/footer.html'); ?>
+  
 </body>
 
 </html>
