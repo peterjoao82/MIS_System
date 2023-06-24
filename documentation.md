@@ -1,4 +1,4 @@
-//login code for reference
+<!-- //login code for reference
 <?php 
 session_start();
     require_once "../connection/connection.php"; 
@@ -265,4 +265,4 @@ to display user id in top
 
 
 
-					
+					 -->
