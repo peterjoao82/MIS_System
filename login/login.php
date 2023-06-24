@@ -11,7 +11,7 @@
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
     <div class="container">
       <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="../index.html">
-        MIS - Welcome SMVITM Student Interface System
+        Welcome to SMVITM MIS
       </a>
       
           
@@ -21,7 +21,7 @@
   <!-- End Navbar -->
   <main class="main-content  mt-0">
     <section class="min-vh-100 mb-8">
-      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/curved-images/curved14.jpg');">
+      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/ssasa.jpg');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
           <div class="row justify-content-center">
@@ -43,7 +43,7 @@
               <div class="card-body">
                 <form role="form text-left" method="POST" action="logincode.php">
                  <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Uinversity Seat Number" aria-label="Email" name="username" aria-describedby="email-addon" required>
+                    <input type="text" class="form-control" placeholder="University Seat Number" aria-label="Email" name="username" aria-describedby="email-addon" required>
                   </div>
                   <div class="mb-3">
                     <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" aria-describedby="password-addon" required>
