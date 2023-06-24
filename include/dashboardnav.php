@@ -1,7 +1,7 @@
  <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./dashboard.php">
-              <h4 class=""> MIS - Welcome  <span><?php $Student_USN=$_SESSION['user_id'];
+              <h4 class=""> Welcome  <span><span><span><span><?php $Student_USN=$_SESSION['user_id'];
                     $query="SELECT * FROM studentmaster WHERE ST_NO='$Student_USN'";
                     $run=mysqli_query($conn,$query);
                     while ($row=mysqli_fetch_array($run)) {

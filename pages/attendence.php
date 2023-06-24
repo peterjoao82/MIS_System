@@ -15,9 +15,10 @@ if (isset($_POST['sub1'])) {
 
 
 <!DOCTYPE html>
+
 <head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />      
-  </head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
 <html lang="en">
 <?php include('../include/header.php');
 ?>
@@ -35,31 +36,31 @@ if (isset($_POST['sub1'])) {
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-            <div class="align-middle">
+            <div class="card-header pb-0">
               <h6>Attendence</h6>
             </div>
             <form action="attendence.php" method="POST">
-            <div class="text-middle-align">
-            <div class="dropdown" style="text-align: right; margin-right:20px;" >
-                    <select class="browser-default custom-select" style="background-color:purple;color:white" name="sem" >
-                                            
-                                            <?php
-                                            
-                                            $query="select distinct SEMESTER as sem from subject ORDER BY SEMESTER";
-                                            $run=mysqli_query($conn,$query);
-                                            while($row=mysqli_fetch_array($run)) {
-                                            echo "<option  value=".$row['sem'].">".$row['sem']."</option>";
-                                            }
-                                            ?>
+              <div class="text-middle-align">
+                <div class="dropdown" style="text-align: right; margin-right:20px;">
+                  <select class="browser-default custom-select" style="background-color:purple;color:white" name="sem">
 
-                                        </select>
-                                        <span class="material-symbols-outlined">
-                                         <input type="submit" name="sub1" value="move"/>
+                    <?php
 
-</span>
-                              
-                  </div>
-                </form> 
+                    $query = "select distinct SEMESTER as sem from subject ORDER BY SEMESTER";
+                    $run = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($run)) {
+                      echo "<option  value=" . $row['sem'] . ">" . $row['sem'] . "</option>";
+                    }
+                    ?>
+
+                  </select>
+                  <span class="material-symbols-outlined">
+                    <input type="submit" name="sub1" value="move" />
+
+                  </span>
+
+                </div>
+            </form>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center justify-content-center mb-0">
@@ -74,13 +75,13 @@ if (isset($_POST['sub1'])) {
                     </tr>
                   </thead>
                   <tbody>
-                   
-                  <?php
-               
-             $user_id=$_SESSION['user_id'];
-               // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
-               $query = "select s.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$user_id' GROUP BY ma.SUB_CODE";
-                
+
+                    <?php
+
+                    $user_id = $_SESSION['user_id'];
+                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
+                    $query = "select s.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$user_id' GROUP BY ma.SUB_CODE";
+
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
                       <tr>
@@ -110,25 +111,25 @@ if (isset($_POST['sub1'])) {
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold"><?php echo $formatted ?>%</span>
                             <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $row['pert']?>%" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-                            </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $row['pert'] ?>%" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
                             </div>
                           </div>
-                        </td>
-                      </tr>
-
-                    <?php } ?>
-                  </tbody>
-                </table>
               </div>
+              </td>
+              </tr>
+
+            <?php } ?>
+            </tbody>
+            </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <?php include('../include/footer.html'); ?>
+    <?php include('../include/footer.html'); ?>
     </div>
   </main>
 </body>
