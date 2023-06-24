@@ -39,7 +39,8 @@ if (isset($_POST['viewdetails'])) {
             <div class="card-header pb-0">
               <h6>Marks - </h6>
             </div>
-            <button name="viewdetails" type="submit"><a href="./detailmarks.php">View Details</a></button>
+            <!-- <button name="viewdetails" type="submit"><a href="detailmarks.php">View Details</a></button> -->
+            
             <form action="marks.php" method="POST">
               <div class="text-middle-align">
                 <div class="dropdown" style="text-align: right; margin-right:20px;">
@@ -72,14 +73,14 @@ if (isset($_POST['viewdetails'])) {
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">SUB NAME</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">SEMESTER</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">AVERAGE MARKS</th>
-                      <th></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">View Details</th>
 
                     </tr>
                   </thead>
                   <tbody>
                     <?php
 
-                    $obtain_marks = 0;
+              
 
                     $roll_no = $_SESSION['user_id'];
                     $query = "SELECT m.ST_NO,m.SUB_CODE ,s.SUB_NAME,s.SEMESTER, AVG(m.IA_1+m.IA_2+m.IA_3) as mm FROM marks m, subject s WHERE m.SUB_CODE=s.SUB_CODE AND m.ST_NO='$roll_no' AND s.SEMESTER='$semi' GROUP by s.SUB_CODE";
@@ -91,16 +92,11 @@ if (isset($_POST['viewdetails'])) {
                         <td><?php echo $row['SUB_NAME'] ?></td>
                         <td><?php echo $row['SEMESTER'] ?></td>
                         <td><?php echo $row['mm'] ?></td>
-
-
+                        <td><?php echo "<a class='btn btn-danger' href=detailmarks.php?SEMESTER=".$row['SEMESTER'].">View Details</a> "?></td>
                       </tr>
                     <?php
-
                     }
                     ?>
-
-
-
                   </tbody>
                 </table>
               </div>
