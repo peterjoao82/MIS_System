@@ -43,7 +43,7 @@
               <div class="card-body">
                 <form role="form text-left" method="POST" action="logincode.php">
                  <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Uinversity Seat Number" aria-label="Email" name="username" aria-describedby="email-addon" required>
+                    <input type="text" class="form-control" placeholder="University Seat Number" aria-label="Email" name="username" aria-describedby="email-addon" required>
                   </div>
                   <div class="mb-3">
                     <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" aria-describedby="password-addon" required>

@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+<!-- Main Query -->
 <!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
 
-<?php  
-	session_start();
-	if (!$_SESSION["user_id"])
-	{
-		header('location: ../login/login.php');
-	}
-		require_once "../connection/connection.php";
-	?>
-=======
 <!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
 
 <?php  
@@ -21,42 +11,9 @@
   }
     require_once "../connection/connection.php";
   ?>
->>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
+
   <!-- End of the session; Aaron -->
   <!-- Declarations of variables -->
-  <?php
-  // $first_name=$_POST['first_name'];
-
-<<<<<<< HEAD
-	// 	$course_code=$_POST['USN'];
-
-	// 	$section=$_POST['bcode'];
-
-	// 	$batch=$_POST['mb'];
-
-	// 	$fac_adv=$_POST['fac_adv'];
-
-	// 	$semester=$_POST['emails'];
-=======
-<?php
-session_start();
-if (!$_SESSION["user_id"]) {
-  header('location: ../login/login.php');
-}
-require_once "../connection/connection.php";
->>>>>>> 53ca6d521f7e111032a95ccfeb1fa319a58374f9
-=======
-  //  $course_code=$_POST['USN'];
-
-  //  $section=$_POST['bcode'];
-
-  //  $batch=$_POST['mb'];
-
-  //  $fac_adv=$_POST['fac_adv'];
-
-  //  $semester=$_POST['emails'];
->>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
-?>
 
     <!DOCTYPE html>
 <html lang="en">
@@ -65,8 +22,7 @@ require_once "../connection/connection.php";
 
 <!-- okay dd -->
 <body class="g-sidenav-show bg-gray-100">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
  
   <!-- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main"> -->
   
@@ -107,12 +63,10 @@ require_once "../connection/connection.php";
     <!-- </div> -->
     
   </aside>
-=======
 <?php include('../include/link.html'); ?>
-    <?php include('../include/dashboardnav.php'); ?>
->>>>>>> 53ca6d521f7e111032a95ccfeb1fa319a58374f9
+
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-            <div class="row ml-4">
+            <!-- <div class="row ml-4">
               <div class="col-lg-6 col-md-12 col-sm-12">
                 <form action="profile.php" method="post">
                   <?php $user_id = $_SESSION['user_id'];
@@ -158,10 +112,9 @@ require_once "../connection/connection.php";
                       </div>
 
                     </div>
-<<<<<<< HEAD
                   </a>
-                </li> -->
-=======
+                </li>  -->
+
  
  
  <?php include('../include/dashboardnav.php'); ?><br><br><br><br>
@@ -175,8 +128,6 @@ require_once "../connection/connection.php";
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-           
->>>>>>> 10f290c5a952568226817c65737b8625b06e39e0
               </ul>
             </li>
           </ul>
@@ -186,12 +137,11 @@ require_once "../connection/connection.php";
     <!-- End Navbar -->
     <div class="container-fluid">
       <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../assets/img/smv.jpg'); background-position-y: 50%;">
-        <span class="mask bg-gradient-primary opacity-6"></span>
+        <span class="mask bg-gradient-primary opacity-4"></span>
       </div>
       <!-- Yes -->
-      <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="card card-body blur shadow-blur mx-4 mt-n6  overflow-hidden">
         <div class="row gx-4">
-<<<<<<< HEAD
           <!-- <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
               <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
@@ -402,12 +352,9 @@ require_once "../connection/connection.php";
                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                   </a>
                 </div>
-=======
+
                   <?php } ?>
-                </form>
->>>>>>> 53ca6d521f7e111032a95ccfeb1fa319a58374f9
-=======
-        
+                </form>        
         <div class="row ml-4">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <form action="profile.php" method="post">
