@@ -92,7 +92,7 @@ if (isset($_POST['viewdetails'])) {
                         <td><?php echo $row['SUB_NAME'] ?></td>
                         <td><?php echo $row['SEMESTER'] ?></td>
                         <td><?php echo $row['mm'] ?></td>
-                        <td><?php echo "<a class='btn btn-danger' href=detailmarks.php?SEMESTER=".$row['SEMESTER'].">View Details</a> "?></td>
+                        <td><?php echo "<a target='_blank' class='btn btn-danger' href=detailmarks.php?SEMESTER=".$row['SEMESTER'].">View Details</a> "?></td>
                       </tr>
                     <?php
                     }
