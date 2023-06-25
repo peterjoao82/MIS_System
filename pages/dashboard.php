@@ -20,6 +20,7 @@
     <br>
     <br>
     <br>
+    <br>
    <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
    <?php include('../include/progress.php');?>
