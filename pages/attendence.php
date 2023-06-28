@@ -8,6 +8,7 @@ require_once "../connection/connection.php";
 
 ?>
 <?php
+$semi='1';
 if (isset($_POST['sub1'])) {
   $semi = $_POST['sem'];
 }
@@ -43,7 +44,7 @@ if (isset($_POST['sub1'])) {
               <div class="text-middle-align">
                 <div class="dropdown" style="text-align: right; margin-right:20px;">
                   <select class="browser-default custom-select" style="background-color:purple;color:white" name="sem">
-
+                  <!-- <option value="1" selected>1</option> -->
                     <?php
 
                     $query = "select distinct SEMESTER as sem from subject ORDER BY SEMESTER";
@@ -77,11 +78,9 @@ if (isset($_POST['sub1'])) {
                   <tbody>
 
                     <?php
-
+                    
                     $user_id = $_SESSION['user_id'];
-                    // $query11 ="select  from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and ma.ST_NO = '$userid'";
                     $query = "select s.sub_code,avg(ma.ATTNPER) as pert,s.sub_name,sum(ma.MnthlyTotClasses) as Tot_cls,sum(ma.MnthlyTotAttended) as MnthTotAtt from monthlyattn ma, subject s WHERE ma.SUB_CODE = s.SUB_CODE and  s.SEMESTER='$semi' and  ma.ST_NO ='$user_id' GROUP BY ma.SUB_CODE";
-
                     $run = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($run)) { ?>
                       <tr>
