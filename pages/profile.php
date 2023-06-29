@@ -17,8 +17,11 @@ require_once "../connection/connection.php";
 <?php include('../include/header.php');
 ?>
 
-<!-- okay dd -->
-
+<style>
+  #btm1 {
+    text-decoration: underline;
+  }
+</style>
 <body class="g-sidenav-show bg-gray-100">
 
 <?php include('../include/link.html'); ?>
@@ -58,14 +61,13 @@ require_once "../connection/connection.php";
 								$query="SELECT DISTINCT sm.ST_NO as USN, sm.FNAME as Fname,sm.BR_CODE as bcode,sm.MOBILE_NO as mb,sm.StCollegeEMail as email, PASSWD as pass FROM studentmaster sm, employee e WHERE sm.ST_NO='$user_id'";
 								$run=mysqli_query($conn,$query);
 								while ($row=mysqli_fetch_array($run)) {?>
-							<div class="row">
-								<div class=" col-lg-6 col-md-6 pr-5">
+							<div class="row">					
+              <div class="col-md-6 pr-5">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Name:</label>
-										<input type="text"  class="form-control" name="first_name" value=<?php echo $row['Fname']?> readonly>
+										<label for="exampleInputPassword1">Name</label>
+										<input type="text" class="form-control" name="course_code"  value="<?php echo $row['Fname'] ?>" readonly>
 									</div>
 								</div>
-								
 								<div class="col-md-6 pr-5">
 									<div class="form-group">
 										<label for="exampleInputPassword1">USN</label>
@@ -91,7 +93,7 @@ require_once "../connection/connection.php";
 								
 								<div class="col-md-6 pr-5">
 									<div class="form-group">
-										<label for="exampleInputPassword1">Semester</label>
+										<label for="exampleInputPassword1">Email</label>
 										<input type="text" name="semester" class="form-control"  placeholder="Semester" value=<?php echo $row['email'] ?> readonly>
 									</div>
 								</div>
@@ -99,6 +101,7 @@ require_once "../connection/connection.php";
 							</div>
 							<?php } ?>
 						</form>
+            <p>Any Suggestions? <br> <a id="btm1" href="https://contact.oneshorts.in/"> Contact us.</a></p>
 					</div>
 				</div>	
               

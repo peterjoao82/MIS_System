@@ -65,7 +65,10 @@ if (isset($_POST['viewdetails'])) {
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <br></br>
+                <center>
+                <td><?php echo "<a target='_blank' class='btn btn-info' href=detailmarks.php?SEMESTER=".$semi.">View Details</a> "?></td></center>
                 <table class="table align-items-center justify-content-center mb-0">
+                  
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">SUB CODE</th>
@@ -89,13 +92,14 @@ if (isset($_POST['viewdetails'])) {
                         <td><?php echo $row['SUB_NAME'] ?></td>
                         <td><?php echo $row['SEMESTER'] ?></td>
                         <td><?php echo $row['mm'] ?></td>
-                        <td><?php echo "<a target='_blank' class='btn btn-danger' href=detailmarks.php?SEMESTER=".$row['SEMESTER'].">View Details</a> "?></td>
                       </tr>
                     <?php
                     }
                     ?>
                   </tbody>
+
                 </table>
+                
               </div>
             </div>
           </div>
