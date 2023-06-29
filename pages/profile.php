@@ -1,9 +1,6 @@
 <!-- Main Query -->
 <!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
 
-<!-- SELECT sm.ST_NO, sm.FNAME,sm.BR_CODE,sm.MOBILE_NO,sm.S_PHOTO,sm.FAC_ADVISOR,sm.PASSWD,sm.StCollegeEMail,e.EMP_NO,e.FNAME FROM studentmaster sm, employee e WHERE sm.ST_NO="4MW20CS001" AND sm.FAC_ADVISOR = e.EMP_NO; -->
-
-
 <?php
 session_start();
 if (!$_SESSION["user_id"]) {
