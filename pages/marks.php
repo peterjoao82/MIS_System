@@ -65,8 +65,7 @@ if (isset($_POST['viewdetails'])) {
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <br></br>
-                <center>
-                <td><?php echo "<a target='_blank' class='btn btn-info' href=detailmarks.php?SEMESTER=".$semi.">View Details</a> "?></td></center>
+                
                 <table class="table align-items-center justify-content-center mb-0">
                   
                   <thead>
@@ -75,7 +74,6 @@ if (isset($_POST['viewdetails'])) {
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">SUB NAME</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">SEMESTER</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">AVERAGE MARKS</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" text-align="center">View Details</th>
 
                     </tr>
                   </thead>
@@ -99,6 +97,8 @@ if (isset($_POST['viewdetails'])) {
                   </tbody>
 
                 </table>
+                <center>
+                <td><?php echo "<a target='_blank' class='btn btn-info' href=detailmarks.php?SEMESTER=".$semi.">View Details</a> "?></td></center>
                 
               </div>
             </div>
