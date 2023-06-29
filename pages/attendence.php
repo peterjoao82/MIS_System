@@ -90,7 +90,7 @@ if (isset($_POST['sub1'])) {
                             $ptr = $row['pert'];
                             $string = floatval($ptr);
                             $formatted = number_format($string, 2, '.', '');
-                            $maxvalue1 = '100';
+                        
                             ?>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm"><?php echo $row['sub_name'] ?></h6>
@@ -109,11 +109,6 @@ if (isset($_POST['sub1'])) {
                         <td class="align-middle text-center">
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold"><?php echo $formatted ?>%</span>
-                            <div>
-                              <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $row['pert'] ?>%" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </div>
                           </div>
               </div>
               </td>

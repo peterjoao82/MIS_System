@@ -97,9 +97,7 @@ if (isset($_POST['viewdetails'])) {
                   </tbody>
 
                 </table>
-                <center>
-                <td><?php echo "<a target='_blank' class='btn btn-info' href=detailmarks.php?SEMESTER=".$semi.">View Details</a> "?></td></center>
-                
+                <center><td><?php echo "<a target='_blank' class='btn btn-info' href=detailmarks.php?SEMESTER=".$semi.">View Details</a> "?></td></center>
               </div>
             </div>
           </div>

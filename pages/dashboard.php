@@ -15,7 +15,7 @@
 <body class="g-sidenav-show  bg-gray-100">
 
   <?php include('../include/link.html'); ?>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg " style="background-image: url('../assets/img/curved-images/white-curved.jpg');">
     <!-- Navbar -->
     <br>
     <br>
@@ -23,9 +23,10 @@
     <br>
    <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
+    <br><br>
    <?php include('../include/progress.php');?>
      
-
+<br><br>
    <?php include('../include/content.php');?>
 
   </main>
