@@ -17,16 +17,11 @@ require_once "../connection/connection.php";
 <?php include('../include/header.php');
 ?>
 
-<!-- okay dd -->
-<<<<<<< HEAD
 <style>
   #btm1 {
     text-decoration: underline;
   }
 </style>
-=======
-
->>>>>>> 54d2b6075b8419a6f858a6af2eb88cb49f683bdf
 <body class="g-sidenav-show bg-gray-100">
 
 <?php include('../include/link.html'); ?>
