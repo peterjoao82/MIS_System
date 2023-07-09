@@ -55,11 +55,11 @@ require_once "../connection/connection.php";
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<form action="profile.php" method="post">
 							<?php $user_id=$_SESSION['user_id'];
-								$query="SELECT DISTINCT sm.ST_NO as USN, sm.FNAME as Fname,sm.BR_CODE as bcode,sm.MOBILE_NO as mb,sm.StCollegeEMail as email, PASSWD as pass FROM studentmaster sm, employee e WHERE sm.ST_NO='$user_id'";
+								$query="SELECT DISTINCT sm.ST_NO as USN, sm.FNAME as Fname,sm.BR_CODE as bcode,sm.MOBILE_NO as mb,e.FNAME as ename,sm.StCollegeEMail as email, PASSWD as pass FROM studentmaster sm, employee e WHERE sm.ST_NO='$user_id' and sm.FAC_ADVISOR = e.EMP_NO";
 								$run=mysqli_query($conn,$query);
 								while ($row=mysqli_fetch_array($run)) {?>
 							<div class="row">					
-              <div class="col-md-6 pr-5">
+              					<div class="col-md-6 pr-5">
 									<div class="form-group">
 										<label for="exampleInputPassword1">Name</label>
 										<input type="text" class="form-control" name="course_code"  value="<?php echo $row['Fname'] ?>" readonly>
@@ -92,6 +92,12 @@ require_once "../connection/connection.php";
 									<div class="form-group">
 										<label for="exampleInputPassword1">Email</label>
 										<input type="text" name="semester" class="form-control"  placeholder="Semester" value=<?php echo $row['email'] ?> readonly>
+									</div>
+								</div>
+								<div class="col-md-6 pr-5">
+									<div class="form-group">
+										<label for="exampleInputPassword1">faculty Adivsor Name</label>
+										<input type="text" class="form-control" name="course_code"  value="<?php echo $row['ename'] ?>" readonly>
 									</div>
 								</div>
                
