@@ -21,11 +21,9 @@ require_once "../connection/connection.php";
 </style>
 <body class="g-sidenav-show bg-gray-100">
 
-<?php include('../include/link.html'); ?>
-
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
           
- <?php include('../include/dashboardnav.php'); ?><br><br><br><br>
+ <?php include('../include/dashboardnav.php'); ?><br><br><br><br><br><br>
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">

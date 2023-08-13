@@ -4,8 +4,6 @@ if (!$_SESSION["user_id"]) {
   header('location: ../login/login.php');
 }
 require_once "../connection/connection.php";
-
-
 ?>
 <?php
 $semi='1';
@@ -26,13 +24,14 @@ if (isset($_POST['sub1'])) {
 
 
 <body class="g-sidenav-show  bg-gray-100">
-  <?php include('../include/link.html'); ?>
+  
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <?php include('../include/dashboardnav.php'); ?>
     <!-- End Navbar -->
     <br>
-    <br><br>
+    <br><br><br>
+  <br>
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">

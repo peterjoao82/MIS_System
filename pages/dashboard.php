@@ -14,8 +14,7 @@
 
 <body class="g-sidenav-show  bg-gray-100">
 
-  <?php include('../include/link.html'); ?>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg " style="background-image: url('../assets/img/curved-images/white-curved.jpg');">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg " style="background-image: url('../assets/img/curved-images/white-curved.jpg');padding:2% 2%">
     <!-- Navbar -->
     <br>
     <br>
